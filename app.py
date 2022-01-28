@@ -263,7 +263,6 @@ def armor_guns(rol):
 
 
 
-
 def display_character(rol):
     main_habilities()
     habilities(rol)
@@ -280,7 +279,10 @@ class main:
             print('FIX - generate fixer  EXE - generate executive  SOLO - generate mercenary \n'
                   'NOM - generate nomad  POL - generate police     ROC - generate reckerboy \n'
                   'TEC - generate tecy   MED - generate tecnomedic \n'
-                  'STATS - random stats                            QUIT - to end program')
+                  'STATS - random stats  \n'
+                  'CIB3 - generate ciber                           CIB6 - generate ciber \n'
+                  'EQUIP - generate armor/guns                     EQUIPSOLO - generate armor/guns for Solo \n'
+                  'QUIT - to end program')
         elif command == "FIX":
             display_character(1)
         elif command == "EXE":
@@ -300,6 +302,14 @@ class main:
 
         elif command == "STATS":
             main_habilities()
+        elif command == "CIB3":
+            cibernetics(1)
+        elif command == "CIB6":
+            cibernetics(3)
+        elif command == "EQUIP":
+            armor_guns(1)
+        elif command == "EQUIPSOLO":
+            armor_guns(3)
         elif command == "QUIT":
             print("the program has ended")
             break
