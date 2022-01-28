@@ -18,9 +18,6 @@ def recurce_result_d6(dice_number, top_value, bot_value = 0):
     else:
         return result
 
-
-
-
 def d10(dice_number = 1):
     result = 0
     if dice_number >= 1:
@@ -248,7 +245,22 @@ def armor_guns(rol):
     if result == 2:
         print("Chaqueta Blindada (CP 10·) /// PL (1d6+1) [10)2]")
     if result == 3:
-        print("Chaqueta Blindada L (CP 14··) /// PM (2d6+1) [")
+        print("Chaqueta Blindada L (CP 14··) /// PM (2d6+1) [12)2]")
+    if result == 4:
+        print("Chaqueta Blindada L (CP 14··) /// PP (3d6) [8)2]")
+    if result == 5:
+        print("Chaqueta Blindada M (CP 18··) (CE +1) /// PP (3d6) [8)2]")
+    if result == 6:
+        print("Chaqueta Blindada M (CP 18··) (CE +1) /// SUB L (2d6+1) [50)23]")
+    if result == 7:
+        print("Chaqueta Blindada M (CP 18··) (CE +1) /// FUS L (5d6) [35)25]")
+    if result == 8:
+        print("Chaqueta Blindada P (CP 20··) (CE +2) /// FUS M (5d6) [30)30]")
+    if result == 9:
+        print("Chaqueta Blindada P (CP 20··) (CE +2) /// FUS P (6d6+2) [35)25]")
+    if result >= 10:
+        print("Metal Gear (CP 25*) (CE+2) /// FUS P (6d6+2) [35)25]")
+
 
 
 
@@ -256,6 +268,7 @@ def display_character(rol):
     main_habilities()
     habilities(rol)
     cibernetics(rol)
+    armor_guns(rol)
 
 class main:
     last_command = ""
