@@ -262,6 +262,7 @@ def armor_guns(rol):
         print("Metal Gear (CP 25*) (CE+2) /// FUS P (6d6+2) [35)25]")
 
 
+
 def display_character(rol):
     main_habilities()
     habilities(rol)
