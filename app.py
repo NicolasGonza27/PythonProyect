@@ -18,6 +18,7 @@ def recurce_result_d6(dice_number, top_value, bot_value = 0):
     else:
         return result
 
+
 def d10(dice_number = 1):
     result = 0
     if dice_number >= 1:
