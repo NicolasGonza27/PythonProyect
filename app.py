@@ -1,4 +1,5 @@
 import random
+import requests
 
 def d6(dice_number = 1):
     result = 0
@@ -35,6 +36,12 @@ def recurce_result_d10(dice_number, top_value, bot_value = 0):
         return recurce_result_d10(dice_number, top_value, bot_value)
     else:
         return result
+
+def generate_name():
+    url = "http://api.namefake.com/english-united-states/"
+    response = requests.get(url)
+    print(f'Character Name: {(response.json())["name"]}')
+    #print((response.json())["address"])
 
 def characteristics():
     hability_scores = []
@@ -264,6 +271,7 @@ def armor_guns(rol):
 
 
 def display_character(rol):
+    generate_name()
     main_habilities()
     habilities(rol)
     cibernetics(rol)
