@@ -1,6 +1,7 @@
 import random
 import requests
 
+
 def d6(dice_number = 1):
     result = 0
     if dice_number >= 1:
@@ -10,6 +11,8 @@ def d6(dice_number = 1):
         return result
     else:
         return False
+
+
 def recurce_result_d6(dice_number, top_value, bot_value = 0):
     result = d6(dice_number)
     if top_value != 0 and result >= top_value:
@@ -18,6 +21,7 @@ def recurce_result_d6(dice_number, top_value, bot_value = 0):
         return recurce_result_d6(dice_number, top_value, bot_value)
     else:
         return result
+
 
 def d10(dice_number = 1):
     result = 0
@@ -28,6 +32,8 @@ def d10(dice_number = 1):
         return result
     else:
         return False
+
+
 def recurce_result_d10(dice_number, top_value, bot_value = 0):
     result = d10(dice_number)
     if top_value != 0 and result > top_value:
@@ -37,11 +43,13 @@ def recurce_result_d10(dice_number, top_value, bot_value = 0):
     else:
         return result
 
+
 def generate_name():
     url = "http://api.namefake.com/english-united-states/"
     response = requests.get(url)
     print(f'Character Name: {(response.json())["name"]}')
     #print((response.json())["address"])
+
 
 def characteristics():
     hability_scores = []
@@ -52,6 +60,7 @@ def characteristics():
         hability_scores[x] = characteristics_score
 
     return hability_scores
+
 
 # Returns text with Fixer habilities
 def fixer_skils():
@@ -118,6 +127,7 @@ def tocnomedic_skils():
     array[1] = "Advertir/Notar &, Buscar libros &, Cultura general &, Diagnostico &, Farmacia &, Man. tanque crio &, Mecanica basica &, Percepcion humana &, Zoologia &"
     return array
 
+
 def main_habilities():
     array_char = characteristics()
     text = "INT[&] REF[&] TEC[&] FRI[&] ATR[&] SUE[&] MOV[&] TCO[&] EMP[&]"
@@ -125,6 +135,7 @@ def main_habilities():
         text = text.replace("&", str(x), 1)
 
     print(text)
+
 
 def cibernetics(rol):
     max_roll = 3
@@ -161,7 +172,7 @@ def cibernetics(rol):
         if x == 9:
             print("Potenciador de REF Sandevistan (+3 a la iniciativa por 5 turnos)")
         if x == 11:
-            print("Infrarojos (Permite ver en la oscuridad total, usando emiciones de calor)")
+            print("Infrarrojos (Permite ver en la oscuridad total, usando emisiones de calor)")
         if x == 12:
             print("Luz tenue (Permite ver en luz tenue, casi total oscuridad)")
         if x == 13:
@@ -197,38 +208,39 @@ def cibernetics(rol):
         if x == 36:
             print("Conector de grabador digital (transmite sonido a un grab. digital)")
 
+
 def habilities(rol):
     score = 40
-    spetial = ""
+    special = ""
     skills = ""
 
     if rol == 1:
-        spetial = fixer_skils()[0]
+        special = fixer_skils()[0]
         skills = fixer_skils()[1]
     if rol == 2:
-        spetial = executive_skils()[0]
+        special = executive_skils()[0]
         skills = executive_skils()[1]
     if rol == 3:
-        spetial = solo_skils()[0]
+        special = solo_skils()[0]
         skills = solo_skils()[1]
     if rol == 4:
-        spetial = nomad_skils()[0]
+        special = nomad_skils()[0]
         skills = nomad_skils()[1]
     if rol == 5:
-        spetial = police_skils()[0]
+        special = police_skils()[0]
         skills = police_skils()[1]
     if rol == 6:
-        spetial = rocker_skils()[0]
+        special = rocker_skils()[0]
         skills = rocker_skils()[1]
     if rol == 7:
-        spetial = tecnic_skils()[0]
+        special = tecnic_skils()[0]
         skills = tecnic_skils()[1]
     if rol == 8:
-        spetial = tocnomedic_skils()[0]
+        special = tocnomedic_skils()[0]
         skills = tocnomedic_skils()[1]
 
     spetial_score = recurce_result_d10(1, score, 0)
-    spetial = spetial.replace("&", str(spetial_score), 1)
+    special = special.replace("&", str(spetial_score), 1)
     score -= spetial_score
     for x in range(8):
         skills_score = recurce_result_d10(1, score, 0)
@@ -239,9 +251,10 @@ def habilities(rol):
 
         if score <= 0 or skills_score <= 0: break
 
-    print(spetial)
+    print(special)
     print(skills)
     print(f"Restan {score} puntos")
+
 
 def armor_guns(rol):
     result = d10()
@@ -267,7 +280,6 @@ def armor_guns(rol):
         print("Chaqueta Blindada P (CP 20··) (CE +2) /// FUS P (6d6+2) [35)25]")
     if result >= 10:
         print("Metal Gear (CP 25*) (CE+2) /// FUS P (6d6+2) [35)25]")
-
 
 
 def display_character(rol):

@@ -1,0 +1,17 @@
+clase Padre: caracteristicas
+    habilidades principales(ej: reflejos, tipo corporal, inteligencia, etc.)
+    habilidades secundarias(ej: armas cortas, cuerpo a cuerpo)
+    funcion generar_nombre
+    # incluye generadores de personajes aleatorios para las habilidades principales
+    # metodo de generar habilidades secundarias
+clase de dados:
+    dado d6, d4 y d10
+clases de cada rol:
+    todos los roles(ej: solo, fixer, med, etc.)
+    habilidad especial unica de cada rol
+clase de ciberneticos
+
+clase de armas
+    con todas las caracteristicas
+clase de blindajes
+    con todas sus caracteristicas
